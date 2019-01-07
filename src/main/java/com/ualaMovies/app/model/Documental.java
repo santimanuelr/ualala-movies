@@ -2,7 +2,7 @@ package com.ualaMovies.app.model;
 
 import java.io.Serializable;
 
-public class Documental implements Serializable {
+public class Documental extends Product implements Serializable {
 
 	/**
 	 * 
