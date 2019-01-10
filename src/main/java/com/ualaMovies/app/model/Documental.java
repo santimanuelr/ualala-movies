@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 public class Documental extends Product implements Serializable {
 
+	public Documental(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * 
 	 */

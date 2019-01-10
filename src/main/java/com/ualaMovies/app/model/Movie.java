@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 public class Movie extends Product implements Serializable {
 
+	public Movie(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * 
 	 */

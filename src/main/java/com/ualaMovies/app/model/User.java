@@ -1,21 +1,20 @@
 package com.ualaMovies.app.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
-public abstract class User extends AuditableObject implements Serializable {
+public class User extends AuditableObject implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private String email;
-	private String status;
+	private StateOfMind status;
 	private Integer countPeopleLogIn;
 	private List<Product> whatUserSee;
-	
-	public abstract BigDecimal getSuscriptionPay();
+	private List<Suscription> suscriptions = new ArrayList<Suscription>();
 	
 
 	public String getEmail() {
@@ -29,12 +28,11 @@ public abstract class User extends AuditableObject implements Serializable {
 	}
 
 
-
-	public String getStatus() {
+	public StateOfMind getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(StateOfMind status) {
 		this.status = status;
 	}
 
@@ -52,6 +50,27 @@ public abstract class User extends AuditableObject implements Serializable {
 
 	public void setWhatUserSee(List<Product> whatUserSee) {
 		this.whatUserSee = whatUserSee;
+	}
+
+
+	public List<Suscription> getSuscriptions() {
+		return suscriptions;
+	}
+
+
+
+	public void setSuscriptions(List<Suscription> suscriptions) {
+		this.suscriptions = suscriptions;
+	}
+
+
+
+	public Suscription getValidSuscription() {
+		for(Suscription suscription : suscriptions){
+			if (suscription.isValid())
+				return suscription;
+		}
+		return null;
 	}
 
 }
